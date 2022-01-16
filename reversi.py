@@ -41,10 +41,8 @@ class Reversi:
 
     def can_place_stone(self,x,y): 
         if not self.is_in_board(x,y):
-            print('The coordinate is out of board')
             return False
         if self.board[y][x] != empty:
-            print('The coordinate is already filled')
             return False
         return self.find_reversible_stone(x,y)
 

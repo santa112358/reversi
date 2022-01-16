@@ -83,7 +83,6 @@ class Reversi:
             for dx in (-1,0,1):
                 for dy in (-1,0,1):
                     length = self.reversible_stones_length_on_direction(x,y,dx,dy)
-                    if length == None: length = 0
                     if length > 0:
                         for l in range(length):
                             k = l+1
@@ -110,7 +109,7 @@ class Reversi:
         self.reverse_stone(x,y)
 
     
-    def input_point(self):
+    def input_coordinate(self):
         print('Input number(1~8)')
         x = input('x>>')
         try:
@@ -119,13 +118,13 @@ class Reversi:
             if x == 'skip':
                 return 999, 999
             print('Invalid input. Try again.')
-            self.input_point()
+            self.input_coordinate()
         y = input('y>>')
         try:
             y = int(y)-1
         except:
             print('Invalid input. Try again.')
-            self.input_point()
+            self.input_coordinate()
         return x, y    
 
     def judge_result(self):
@@ -156,7 +155,7 @@ class Reversi:
     def play_two_players_mode(self):
         while(self.empty_remains() and self.current_remains()):
             self.display()
-            (x,y) = self.input_point() 
+            (x,y) = self.input_coordinate() 
             if x == 999:
                 print('Skipped')
                 self.change_turn()
@@ -174,7 +173,7 @@ class Reversi:
             self.display()
             # Player is always black.
             if self.current == black:
-                (x,y) = self.input_point() 
+                (x,y) = self.input_coordinate() 
                 if x == 999:
                     print('Skipped')
                     self.display()

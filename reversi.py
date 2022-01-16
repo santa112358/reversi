@@ -155,7 +155,6 @@ class Reversi:
     
     def play_two_players_mode(self):
         while(self.empty_remains() and self.current_remains()):
-            print(self.current_remains)
             self.display()
             (x,y) = self.input_point() 
             if x == 999:
